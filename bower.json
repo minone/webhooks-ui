@@ -2,7 +2,7 @@
   "name": "webhooks-ui",
   "homepage": "https://github.com/minone/webhooks-ui",
   "authors": [
-    "Felipe Menezes Cardoso <felipe.computacao@gmail.com>"
+    "Felipe Menezes Cardoso <felipe.computacao@gmail.com>", "Manoel Menezes <manoel.menezes.jr@gmail.com>", "Daniel Farias
   ],
   "description": "Front-end to the webhooks service",
   "main": "index.html",
