@@ -16,11 +16,12 @@
                     <form name="formRegister" class="form-inline" ng-submit="controller.register()">
                         <div class="form-group">
                             <label for="url">URL:</label>
-                            <input type="text" class="form-control" id="url" ng-model="controller.destination.url"
+                            <input type="text" class="form-control" style="width: 350px" id="url" ng-model="controller.destination.url"
                                    required>
                         </div>
 
-                        <button type="submit" class="btn btn-primary" ng-disabled="formRegister.$invalid">Register</button>
+                        <button type="submit" class="btn btn-primary" ng-disabled="formRegister.$invalid">Register
+                        </button>
                     </form>
 
                 </div>
@@ -49,7 +50,8 @@
                             <td>{{controller.validDestination.url}}</td>
                             <td>{{controller.validDestination.secret}}</td>
                             <td>
-                                <button type="button" class="btn btn-success" ng-click="controller.postDefaultMessage(controller.validDestination)">Test
+                                <button type="button" class="btn btn-success btn-block"
+                                        ng-click="controller.postDefaultMessage(controller.validDestination)">Test
                                     Succeed
                                 </button>
                             </td>
@@ -58,7 +60,9 @@
                             <td>{{controller.invalidDestination.url}}</td>
                             <td>{{controller.invalidDestination.secret}}</td>
                             <td>
-                                <button type="button" class="btn btn-danger" ng-click="controller.postDefaultMessage(controller.invalidDestination)">Test Fail
+                                <button type="button" class="btn btn-danger btn-block"
+                                        ng-click="controller.postDefaultMessage(controller.invalidDestination)">Test
+                                    Fail
                                 </button>
                             </td>
                         </tr>
@@ -91,8 +95,10 @@
                             <td>{{destination.url}}</td>
                             <td>{{destination.secret}}</td>
                             <td>
-                                <button type="button" class="btn btn-default" ng-click="controller.openModalPostMessage(destination)">Post Message</button>
                                 <button type="button" class="btn btn-default"
+                                        ng-click="controller.openModalPostMessage(destination)">Post Message
+                                </button>
+                                <button type="button" class="btn btn-danger"
                                         ng-click="controller.deleteDestination(destination.id)">Delete
                                 </button>
                             </td>
@@ -106,6 +112,13 @@
     </div>
 
 
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12" style="padding-bottom: 10px">
+            <button type="button" class="btn btn-warning pull-right" ng-click="controller.deleteLog()">Clear Log
+            </button>
+        </div>
+
+    </div>
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="panel panel-default">
@@ -141,30 +154,30 @@
         <h3 class="modal-title">Fill the form with message details</h3>
     </div>
 
-	<form name="formPostMessage" class="form-inline" ng-submit="controller.postMessage()">
+    <form name="formPostMessage" class="form-inline" ng-submit="controller.postMessage()">
 
-    <div class="panel panel-default" style="border:0px">
-        <table class="table">
-            <tr>
-                <th>Content Type:</th>
-                <td><input type="text" class="form-control" id="ct" ng-model="controller.contentType" required></td>
-            </tr>
-            <tr>
-                <th>Message Body:</th>
-				<td> <textarea class="form-control" rows="4" style="width: 100%"
-                              ng-model="controller.messageBody" id="messageBody" required></textarea> </td>
-            </tr>
-        </table>
-    </div>
+        <div class="panel panel-default" style="border:0px">
+            <table class="table">
+                <tr>
+                    <th>Content Type:</th>
+                    <td><input type="text" class="form-control" id="ct" ng-model="controller.contentType" required></td>
+                </tr>
+                <tr>
+                    <th>Message Body:</th>
+                    <td> <textarea class="form-control" rows="4" style="width: 100%"
+                                   ng-model="controller.messageBody" id="messageBody" required></textarea></td>
+                </tr>
+            </table>
+        </div>
 
-    <div class="modal-footer">
-		<button class="btn btn-default" type="submit" ng-disabled="formPostMessage.$invalid">
-            Post Message
-        </button>
-        <button class="btn btn-default" type="button" ng-click="controller.cancel()">
-            Cancel
-        </button>
-    </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="submit" ng-disabled="formPostMessage.$invalid">
+                Post Message
+            </button>
+            <button class="btn btn-default" type="button" ng-click="controller.cancel()">
+                Cancel
+            </button>
+        </div>
 
-	<form>
+        <form>
 </script>
