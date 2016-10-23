@@ -101,7 +101,8 @@
                             <td>{{destination.contentType}}</td>
                             <td>{{destination.secret}}</td>
                             <td>
-                                <button type="button" class="btn btn-default">Test</button>
+                                <button type="button" class="btn btn-default" ng-click="controller.postMessage(destination)">Test</button>
+                                <button type="button" class="btn btn-default" ng-click="controller.deleteDestination(destination.id)">Delete</button>
                             </td>
                         </tr>
                         </tbody>

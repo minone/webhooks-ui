@@ -16,33 +16,39 @@
         		contentType: ''
         }
         
-       self.destinations = [
-            {
-                id: 'Id1',
-                url: 'http://locahost:8080',
-                contentType: 'text/html',
-                secret: 'guid'
-            },
-            {
-                id: 'Id1',
-                url: 'http://locahost:8080',
-                contentType: 'text/html',
-                secret: 'guid'
-            }];
-
         self.logs = [];
 
         self.getDestinations = function () {
         	DataService.getDestinations(function(response) {
         		self.destinations = response.data;
+        		
+        		
         	});
         };
+        
+        self.getDestinations();
+        
         
         self.register = function() {
         	DataService.registerDestination(self.destination, function() {
         		var toastr = $injector.get('toastr');
                 toastr.success('Destination registered successfully.');
                 self.getDestinations();
+        	});
+        };
+        
+        self.deleteDestination = function(destinationId) {
+        	DataService.deleteDestination(destinationId, function() {
+        		var toastr = $injector.get('toastr');
+                toastr.success('Destination deleted successfully.');
+                self.getDestinations();
+        	});
+        };
+        
+        self.postMessage = function (destination) {
+        	DataSerice.postMessage(destination.id, destination.contentType, 'content', function() {
+        		var toastr = $injector.get('toastr');
+                toastr.success('Test executed successfully.');
         	});
         };
 
