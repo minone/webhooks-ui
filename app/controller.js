@@ -8,41 +8,40 @@
     function HomeController(DataService, $injector, $uibModal) {
 
         var database = firebase.database();
-        
+
         var self = this;
-        
+
         self.destination = {
-        		url: '',
-        		contentType: ''
-        }
-        
+            url: '',
+            contentType: ''
+        };
+
         self.logs = [];
 
+
         self.getDestinations = function () {
-        	DataService.getDestinations(function(response) {
-        		self.destinations = response.data;
-        		
-        		
-        	});
+            DataService.getDestinations(function (response) {
+                self.destinations = response.data;
+            });
         };
-        
+
         self.getDestinations();
-        
-        
-        self.register = function() {
-        	DataService.registerDestination(self.destination, function() {
-        		var toastr = $injector.get('toastr');
+
+
+        self.register = function () {
+            DataService.registerDestination(self.destination, function () {
+                var toastr = $injector.get('toastr');
                 toastr.success('Destination registered successfully.');
                 self.getDestinations();
-        	});
+            });
         };
-        
-        self.deleteDestination = function(destinationId) {
-        	DataService.deleteDestination(destinationId, function() {
-        		var toastr = $injector.get('toastr');
+
+        self.deleteDestination = function (destinationId) {
+            DataService.deleteDestination(destinationId, function () {
+                var toastr = $injector.get('toastr');
                 toastr.success('Destination deleted successfully.');
                 self.getDestinations();
-        	});
+            });
         };
         
         self.openModalPostMessage = function (destination) {
@@ -64,6 +63,7 @@
             modalInstance.result.then(function () {
                 var toastr = $injector.get('toastr');
                 toastr.success('Post executed successfully.');
+
             });
         };
 
@@ -73,7 +73,7 @@
 
         self.gravar = function () {
 
-            for(var i = 1; i <= 50; i++) {
+            for (var i = 1; i <= 50; i++) {
                 database.ref('log/' + i).set({value: 'testando evento ' + i});
             }
         };

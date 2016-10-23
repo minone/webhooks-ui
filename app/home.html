@@ -16,7 +16,8 @@
                     <form name="formRegister" class="form-inline" ng-submit="controller.register()">
                         <div class="form-group">
                             <label for="url">URL:</label>
-                            <input type="text" class="form-control" id="url" ng-model="controller.destination.url" required>
+                            <input type="text" class="form-control" id="url" ng-model="controller.destination.url"
+                                   required>
                         </div>
 
                         <button type="submit" class="btn btn-primary" ng-disabled="formRegister.$invalid">Register</button>
@@ -96,7 +97,9 @@
                             <td>{{destination.secret}}</td>
                             <td>
                                 <button type="button" class="btn btn-default" ng-click="controller.openModalPostMessage(destination)">Post Message</button>
-                                <button type="button" class="btn btn-default" ng-click="controller.deleteDestination(destination.id)">Delete</button>
+                                <button type="button" class="btn btn-default"
+                                        ng-click="controller.deleteDestination(destination.id)">Delete
+                                </button>
                             </td>
                         </tr>
                         </tbody>
