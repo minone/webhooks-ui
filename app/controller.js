@@ -46,7 +46,7 @@
         };
         
         self.postMessage = function (destination) {
-        	DataSerice.postMessage(destination.id, destination.contentType, 'content', function() {
+        	DataService.postMessage(destination.id, destination.contentType, 'content', function() {
         		var toastr = $injector.get('toastr');
                 toastr.success('Test executed successfully.');
         	});
