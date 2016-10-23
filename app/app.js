@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('webhooks', ['ui.router', 'ui.bootstrap', 'ngCookies', 'ngAnimate', 'ngResource',
+    angular.module('webhooks', ['ngRoute', 'ngCookies', 'ngAnimate', 'ngResource',
         'angular-loading-bar', 'toastr', 'ngMessages']);
 
     angular.module('webhooks').config(config);

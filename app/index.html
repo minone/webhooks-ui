@@ -3,17 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Webhooks - Front-end to test the Webhhoks Service</title>
+
+    <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../bower_components/angular-loading-bar/build/loading-bar.css">
+    <link rel="stylesheet" type="text/css" href="../bower_components/angular-toastr/dist/angular-toastr.css">
+
 </head>
 
 <body>
 
-<div ui-view ng-cloak></div>
+<div ng-view></div>
 
 <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
 <script type="text/javascript" src="../bower_components/angular-cookies/angular-cookies.js"></script>
 <script type="text/javascript" src="../bower_components/angular-animate/angular-animate.js"></script>
 <script type="text/javascript" src="../bower_components/angular-resource/angular-resource.js"></script>
-<script type="text/javascript" src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script type="text/javascript" src="../bower_components/angular-route/angular-route.js"></script>
 <script type="text/javascript" src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script type="text/javascript" src="../bower_components/angular-loading-bar/build/loading-bar.js"></script>
 <script type="text/javascript" src="../bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
@@ -24,8 +29,22 @@
 <script type="text/javascript" src="app.routes.js"></script>
 <script type="text/javascript" src="app.interceptor.js"></script>
 
+<script type="text/javascript" src="controller.js"></script>
 
-<script type="text/javascript" src="destination/destination.controller.js"></script>
+
+
+<script src="https://www.gstatic.com/firebasejs/3.5.1/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDvideI92-5FwkLXHO47qVacfK5LARxasU",
+        authDomain: "webhooks-458d0.firebaseapp.com",
+        databaseURL: "https://webhooks-458d0.firebaseio.com",
+        storageBucket: "webhooks-458d0.appspot.com",
+        messagingSenderId: "1031007352031"
+    };
+    firebase.initializeApp(config);
+</script>
 
 </body>
 

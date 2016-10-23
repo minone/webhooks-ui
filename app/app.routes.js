@@ -3,21 +3,14 @@
 
     angular.module('webhooks').config(config);
 
-    config.$inject = ['$stateProvider', '$urlRouterProvider'];
+    config.$inject = ['$routeProvider'];
 
-    function config($stateProvider, $urlRouterProvider) {
+    function config($routeProvider) {
 
-        $urlRouterProvider.otherwise("/root");
-
-        $stateProvider
-            .state('destination', {
-                url: '/destination',
-                templateUrl: 'destination/destination.list.html',
-                controller: 'DestinationController'
-            })
-            .state('root', {
-                url: '/home',
-                templateUrl: 'home.html'
+        $routeProvider
+            .when("/", {
+                templateUrl : "home.html",
+                controller: "HomeController"
             });
     }
 })();
