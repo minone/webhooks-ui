@@ -57,7 +57,10 @@
         };
 
         self.gravar = function () {
-            database.ref('log/1').set({value: 'testando evento 1'});
+
+            for(var i = 1; i <= 50; i++) {
+                database.ref('log/' + i).set({value: 'testando evento ' + i});
+            }
         };
 
         self.gravar2 = function () {
@@ -65,12 +68,14 @@
         };
 
 
-        var logRef = firebase.database().ref('log/');
+        var logRef = database.ref('log/');
 
         logRef.on('child_added', function (data) {
             var logEntry = data.val();
 
-            self.logs.push({entry: logEntry.value});
+            console.log(logEntry.value);
+
+            //self.logs.push({entry: logEntry.value});
         });
 
     }

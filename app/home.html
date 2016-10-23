@@ -18,10 +18,6 @@
                             <label for="url">URL:</label>
                             <input type="text" class="form-control" id="url" ng-model="controller.destination.url" required>
                         </div>
-                        <div class="form-group">
-                            <label for="ct">Content-Type:</label>
-                            <input type="text" class="form-control" id="ct" ng-model="controller.destination.contentType" required>
-                        </div>
 
                         <button type="submit" class="btn btn-primary">Register</button>
                     </form>
@@ -44,7 +40,6 @@
                         <tr>
                             <th>ID</th>
                             <th>URL</th>
-                            <th>Content-Type</th>
                             <th>Shared Secret</th>
                             <th>Action</th>
                         </tr>
@@ -53,7 +48,6 @@
                         <tr>
                             <td>GUID</td>
                             <td>http://blablabla</td>
-                            <td>text/html</td>
                             <td>secret</td>
                             <td>
                                 <button type="button" class="btn btn-success" ng-click="controller.gravar()">Test Succeed</button>
@@ -62,7 +56,6 @@
                         <tr>
                             <td>GUID</td>
                             <td>http://blablabla</td>
-                            <td>text/html</td>
                             <td>secret</td>
                             <td>
                                 <button type="button" class="btn btn-danger" ng-click="controller.gravar2()">Test Fail</button>
@@ -89,7 +82,6 @@
                         <tr>
                             <th>ID</th>
                             <th>URL</th>
-                            <th>Content-Type</th>
                             <th>Shared Secret</th>
                             <th>Action</th>
                         </tr>
@@ -98,7 +90,6 @@
                         <tr ng-repeat="destination in controller.destinations">
                             <td>{{destination.id}}</td>
                             <td>{{destination.url}}</td>
-                            <td>{{destination.contentType}}</td>
                             <td>{{destination.secret}}</td>
                             <td>
                                 <button type="button" class="btn btn-default" ng-click="controller.postMessage(destination)">Test</button>
