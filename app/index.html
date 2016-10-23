@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <title>Webhooks - Front-end to test the Webhhoks Service</title>
 
-    <link rel="stylesheet" type="text/css" href="content/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="content/css/webhooks.css">
+    <!--build:css content/css/vendor.min.css-->
     <link rel="stylesheet" type="text/css" href="../bower_components/angular-loading-bar/build/loading-bar.css">
     <link rel="stylesheet" type="text/css" href="../bower_components/angular-toastr/dist/angular-toastr.css">
+	<!--endbuild-->
+    
+    <!--build:css content/css/webhooks.min.css-->
+    <link rel="stylesheet" type="text/css" href="content/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="content/css/webhooks.css">
+    <!--endbuild-->
 
 </head>
 
@@ -15,6 +20,7 @@
 
 <div ng-view></div>
 
+<!--build:js content/js/vendor.min.js-->
 <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
 <script type="text/javascript" src="../bower_components/angular-cookies/angular-cookies.js"></script>
 <script type="text/javascript" src="../bower_components/angular-animate/angular-animate.js"></script>
@@ -26,8 +32,9 @@
 <script type="text/javascript" src="../bower_components/angular-messages/angular-messages.js"></script>
 <script type="text/javascript" src="../bower_components/crypto-js/crypto-js.js"></script>
 <script type="text/javascript" src="../bower_components/crypto-js/hmac-sha1.js"></script>
+<!--endbuild-->
 
-
+<!--build:js webhooks.min.js-->
 <script type="text/javascript" src="app.js"></script>
 <script type="text/javascript" src="app.constant.js"></script>
 <script type="text/javascript" src="app.routes.js"></script>
@@ -35,8 +42,7 @@
 <script type="text/javascript" src="service/data.service.js"></script>
 <script type="text/javascript" src="controller.js"></script>
 <script type="text/javascript" src="post.message.controller.js"></script>
-
-
+<!--endbuild-->
 
 <script src="https://www.gstatic.com/firebasejs/3.5.1/firebase.js"></script>
 <script>
