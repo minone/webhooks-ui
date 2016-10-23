@@ -3,9 +3,9 @@
 
     angular.module('webhooks').controller('HomeController', HomeController);
 
-    HomeController.$inject = ['DataService', '$injector'];
+    HomeController.$inject = ['DataService', '$injector', '$uibModal'];
 
-    function HomeController(DataService, $injector) {
+    function HomeController(DataService, $injector, $uibModal) {
 
         var database = firebase.database();
         
@@ -45,11 +45,26 @@
         	});
         };
         
-        self.postMessage = function (destination) {
-        	DataService.postMessage(destination.id, destination.contentType, 'content', function() {
-        		var toastr = $injector.get('toastr');
-                toastr.success('Test executed successfully.');
-        	});
+        self.openModalPostMessage = function (destination) {
+        	
+            var modalInstance = $uibModal.open({
+                animation: false,
+                templateUrl: 'postMessage.html',
+                controller: 'PostMessageController',
+                controllerAs: 'controller',
+                backdrop: 'static',
+                size: 'md',
+                resolve: {
+                	destination: function () {
+                        return destination;
+                    }
+                }
+            });
+            
+            modalInstance.result.then(function () {
+                var toastr = $injector.get('toastr');
+                toastr.success('Post executed successfully.');
+            });
         };
 
         self.read = function () {
@@ -57,7 +72,10 @@
         };
 
         self.gravar = function () {
-            database.ref('log/1').set({value: 'testando evento 1'});
+
+            for(var i = 1; i <= 50; i++) {
+                database.ref('log/' + i).set({value: 'testando evento ' + i});
+            }
         };
 
         self.gravar2 = function () {
@@ -65,12 +83,17 @@
         };
 
 
-        var logRef = firebase.database().ref('log/');
+        var logRef = database.ref('log/');
 
         logRef.on('child_added', function (data) {
+
             var logEntry = data.val();
 
-            self.logs.push({entry: logEntry.value});
+            var logView = document.querySelector('#logView');
+
+            console.log(logEntry.value)
+
+            logView.innerHTML = logView.innerHTML + '</br>' + logEntry.value;
         });
 
     }

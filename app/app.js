@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('webhooks', ['ngRoute', 'ngCookies', 'ngAnimate', 'ngResource',
-        'angular-loading-bar', 'toastr', 'ngMessages']);
+        'angular-loading-bar', 'toastr', 'ngMessages', 'ui.bootstrap']);
 
     angular.module('webhooks').config(config);
 

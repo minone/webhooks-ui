@@ -37,7 +37,7 @@
         	$http.delete(Config.apiUrl + '/destination/' + destinationId).then(callback);
         }
         
-        function postMessage(destinationId, contentType, content, callback) {
+        function postMessage(destinationId, contentType, content, secret, callback) {
         	
         	var command = {
                     destinationId: destinationId,
@@ -45,8 +45,12 @@
                     content: content
                 };
         	
+        	var hmacString = CryptoJS.enc.Base64.stringify(CryptoJS.HmacSHA1(content, secret));
+        	
+        	console.log(hmacString);
+        	
         	var config = {
-        			 headers: {'Content-MD5': 'md5'}
+        			 headers: {'Content-MD5': hmacString}
         	};
         	
         	$http.post(Config.apiUrl + '/post-message/', command, config).then(callback);
