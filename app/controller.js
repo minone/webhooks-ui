@@ -3,53 +3,52 @@
 
     angular.module('webhooks').controller('HomeController', HomeController);
 
-    HomeController.$inject = ['DataService', '$injector'];
+    HomeController.$inject = ['DataService', '$injector', '$scope'];
 
-    function HomeController(DataService, $injector) {
+    function HomeController(DataService, $injector, $scope) {
 
         var database = firebase.database();
-        
+
         var self = this;
-        
+
         self.destination = {
-        		url: '',
-        		contentType: ''
-        }
-        
+            url: '',
+            contentType: ''
+        };
+
         self.logs = [];
 
+
         self.getDestinations = function () {
-        	DataService.getDestinations(function(response) {
-        		self.destinations = response.data;
-        		
-        		
-        	});
+            DataService.getDestinations(function (response) {
+                self.destinations = response.data;
+            });
         };
-        
+
         self.getDestinations();
-        
-        
-        self.register = function() {
-        	DataService.registerDestination(self.destination, function() {
-        		var toastr = $injector.get('toastr');
+
+
+        self.register = function () {
+            DataService.registerDestination(self.destination, function () {
+                var toastr = $injector.get('toastr');
                 toastr.success('Destination registered successfully.');
                 self.getDestinations();
-        	});
+            });
         };
-        
-        self.deleteDestination = function(destinationId) {
-        	DataService.deleteDestination(destinationId, function() {
-        		var toastr = $injector.get('toastr');
+
+        self.deleteDestination = function (destinationId) {
+            DataService.deleteDestination(destinationId, function () {
+                var toastr = $injector.get('toastr');
                 toastr.success('Destination deleted successfully.');
                 self.getDestinations();
-        	});
+            });
         };
-        
+
         self.postMessage = function (destination) {
-        	DataService.postMessage(destination.id, destination.contentType, 'content', function() {
-        		var toastr = $injector.get('toastr');
+            DataService.postMessage(destination.id, destination.contentType, 'content', function () {
+                var toastr = $injector.get('toastr');
                 toastr.success('Test executed successfully.');
-        	});
+            });
         };
 
         self.read = function () {
@@ -58,7 +57,7 @@
 
         self.gravar = function () {
 
-            for(var i = 1; i <= 50; i++) {
+            for (var i = 1; i <= 50; i++) {
                 database.ref('log/' + i).set({value: 'testando evento ' + i});
             }
         };
@@ -71,13 +70,15 @@
         var logRef = database.ref('log/');
 
         logRef.on('child_added', function (data) {
+
             var logEntry = data.val();
 
-            console.log(logEntry.value);
+            var logView = document.querySelector('#logView');
 
-            //self.logs.push({entry: logEntry.value});
+            console.log(logEntry.value)
+
+            logView.innerHTML = logView.innerHTML + '</br>' + logEntry.value;
         });
-
     }
 
 })();

@@ -16,7 +16,8 @@
                     <form class="form-inline" ng-submit="controller.register()">
                         <div class="form-group">
                             <label for="url">URL:</label>
-                            <input type="text" class="form-control" id="url" ng-model="controller.destination.url" required>
+                            <input type="text" class="form-control" id="url" ng-model="controller.destination.url"
+                                   required>
                         </div>
 
                         <button type="submit" class="btn btn-primary">Register</button>
@@ -50,7 +51,9 @@
                             <td>http://blablabla</td>
                             <td>secret</td>
                             <td>
-                                <button type="button" class="btn btn-success" ng-click="controller.gravar()">Test Succeed</button>
+                                <button type="button" class="btn btn-success" ng-click="controller.gravar()">Test
+                                    Succeed
+                                </button>
                             </td>
                         </tr>
                         <tr>
@@ -58,7 +61,8 @@
                             <td>http://blablabla</td>
                             <td>secret</td>
                             <td>
-                                <button type="button" class="btn btn-danger" ng-click="controller.gravar2()">Test Fail</button>
+                                <button type="button" class="btn btn-danger" ng-click="controller.gravar2()">Test Fail
+                                </button>
                             </td>
                         </tr>
                         </tbody>
@@ -92,8 +96,12 @@
                             <td>{{destination.url}}</td>
                             <td>{{destination.secret}}</td>
                             <td>
-                                <button type="button" class="btn btn-default" ng-click="controller.postMessage(destination)">Test</button>
-                                <button type="button" class="btn btn-default" ng-click="controller.deleteDestination(destination.id)">Delete</button>
+                                <button type="button" class="btn btn-default"
+                                        ng-click="controller.postMessage(destination)">Test
+                                </button>
+                                <button type="button" class="btn btn-default"
+                                        ng-click="controller.deleteDestination(destination.id)">Delete
+                                </button>
                             </td>
                         </tr>
                         </tbody>
@@ -103,6 +111,7 @@
             </div>
         </div>
     </div>
+
 
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12">
@@ -119,8 +128,10 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="log in controller.logs">
-                            <td>{{log.entry}}</td>
+                        <tr>
+                            <td>
+                                <div id="logView"></div>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
