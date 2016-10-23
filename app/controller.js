@@ -88,10 +88,9 @@
         logRef.on('child_added', function (data) {
 
             var logEntry = data.val();
-
             var logView = document.querySelector('#logView');
 
-            console.log(logEntry.value)
+            console.log(logEntry.value);
 
             logView.innerHTML = logView.innerHTML + '</br>' + logEntry.value;
         });
