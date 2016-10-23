@@ -13,14 +13,14 @@
                 </div>
                 <div class="panel-body">
 
-                    <form class="form-inline">
+                    <form class="form-inline" ng-submit="controller.register()">
                         <div class="form-group">
                             <label for="url">URL:</label>
-                            <input type="text" class="form-control" id="url">
+                            <input type="text" class="form-control" id="url" ng-model="controller.destination.url" required>
                         </div>
                         <div class="form-group">
                             <label for="ct">Content-Type:</label>
-                            <input type="text" class="form-control" id="ct">
+                            <input type="text" class="form-control" id="ct" ng-model="controller.destination.contentType" required>
                         </div>
 
                         <button type="submit" class="btn btn-primary">Register</button>

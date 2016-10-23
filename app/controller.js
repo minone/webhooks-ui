@@ -3,14 +3,19 @@
 
     angular.module('webhooks').controller('HomeController', HomeController);
 
-    HomeController.$inject = ['DataService'];
+    HomeController.$inject = ['DataService', '$injector'];
 
-    function HomeController(DataService) {
+    function HomeController(DataService, $injector) {
 
         var database = firebase.database();
         
         var self = this;
-
+        
+        self.destination = {
+        		url: '',
+        		contentType: ''
+        }
+        
        self.destinations = [
             {
                 id: 'Id1',
@@ -30,6 +35,14 @@
         self.getDestinations = function () {
         	DataService.getDestinations(function(response) {
         		self.destinations = response.data;
+        	});
+        };
+        
+        self.register = function() {
+        	DataService.registerDestination(self.destination, function() {
+        		var toastr = $injector.get('toastr');
+                toastr.success('Destination registered successfully.');
+                self.getDestinations();
         	});
         };
 
