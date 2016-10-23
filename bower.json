@@ -2,7 +2,9 @@
   "name": "webhooks-ui",
   "homepage": "https://github.com/minone/webhooks-ui",
   "authors": [
-    "Felipe Menezes Cardoso <felipe.computacao@gmail.com>", "Manoel Menezes <manoel.menezes.jr@gmail.com>", "Daniel Farias
+    "Felipe Menezes Cardoso <felipe.computacao@gmail.com>",
+    "Manoel Menezes <manoel.menezes.jr@gmail.com>",
+    "Daniel Farias"
   ],
   "description": "Front-end to the webhooks service",
   "main": "index.html",
@@ -17,7 +19,7 @@
     "bower_components",
     "test",
     "tests"
-  ],3
+  ],
   "dependencies": {
     "angular": "~1.4.7",
     "bootstrap": "~3.3.5",
@@ -33,7 +35,8 @@
     "angular-input-masks": "~2.1.1",
     "angular-i18n": "~1.4.8",
     "moment": "~2.14.1",
-    "angular-messages": "~1.5.8"
+    "angular-messages": "~1.5.8",
+    "angular-route": "^1.5.8"
   },
   "resolutions": {
     "angular": "~1.4.7"

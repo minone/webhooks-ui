@@ -56,7 +56,7 @@
                             <td>text/html</td>
                             <td>secret</td>
                             <td>
-                                <button type="button" class="btn btn-success" ng-click="gravar()">Test Succeed</button>
+                                <button type="button" class="btn btn-success" ng-click="controller.gravar()">Test Succeed</button>
                             </td>
                         </tr>
                         <tr>
@@ -65,7 +65,7 @@
                             <td>text/html</td>
                             <td>secret</td>
                             <td>
-                                <button type="button" class="btn btn-danger" ng-click="gravar2()">Test Fail</button>
+                                <button type="button" class="btn btn-danger" ng-click="controller.gravar2()">Test Fail</button>
                             </td>
                         </tr>
                         </tbody>
@@ -95,7 +95,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="destination in destinations">
+                        <tr ng-repeat="destination in controller.destinations">
                             <td>{{destination.id}}</td>
                             <td>{{destination.url}}</td>
                             <td>{{destination.contentType}}</td>
@@ -128,7 +128,7 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="log in logs">
-                            <td>{{log.entry}}</td>
+                            <td>{{controller.log.entry}}</td>
                         </tr>
                         </tbody>
                     </table>

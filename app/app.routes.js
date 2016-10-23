@@ -8,9 +8,10 @@
     function config($routeProvider) {
 
         $routeProvider
-            .when("/", {
-                templateUrl : "home.html",
-                controller: "HomeController"
+            .when('/', {
+                templateUrl : 'home.html',
+                controller: 'HomeController',
+                controllerAs: 'controller'
             });
     }
 })();

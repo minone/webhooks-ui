@@ -3,13 +3,15 @@
 
     angular.module('webhooks').controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope'];
+    HomeController.$inject = ['DataService'];
 
-    function HomeController($scope) {
+    function HomeController(DataService) {
 
         var database = firebase.database();
+        
+        var self = this;
 
-        $scope.destinations = [
+       self.destinations = [
             {
                 id: 'Id1',
                 url: 'http://locahost:8080',
@@ -23,21 +25,23 @@
                 secret: 'guid'
             }];
 
-        $scope.logs = [];
+        self.logs = [];
 
-        $scope.getDestinations = function () {
+        self.getDestinations = function () {
+        	DataService.getDestinations(function(response) {
+        		self.destinations = response.data;
+        	});
+        };
+
+        self.read = function () {
 
         };
 
-        $scope.read = function () {
-
-        };
-
-        $scope.gravar = function () {
+        self.gravar = function () {
             database.ref('log/1').set({value: 'testando evento 1'});
         };
 
-        $scope.gravar2 = function () {
+        self.gravar2 = function () {
             database.ref('log/2').set({value: 'testando evento 2'});
         };
 
@@ -47,7 +51,7 @@
         logRef.on('child_added', function (data) {
             var logEntry = data.val();
 
-            $scope.logs.push({entry: logEntry.value});
+            self.logs.push({entry: logEntry.value});
         });
 
     }
