@@ -1,0 +1,426 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 50px;
+}
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+    border: 0px;
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 51px;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        padding: 20px;
+        overflow-x: hidden;
+        overflow-y: hidden; /* Scrollable contents if viewport is shorter than content. */
+        background-color: #f5f5f5;
+        border-right: 1px solid #ccc;
+    }
+
+    .sidebar:hover {
+        overflow-y: hidden; /* Scrollable contents if viewport is shorter than content. */
+    }
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+    margin-right: -21px; /* 20px padding + 1px border */
+    margin-bottom: 12px;
+    margin-left: -20px;
+}
+
+.nav-sidebar > li > a {
+    padding-right: 10px;
+    padding-left: 15px;
+    padding-top: 10px;
+}
+
+/*
+ * Main content
+ */
+
+.main {
+    padding: 15px;
+}
+
+@media (min-width: 768px) {
+    .main {
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+}
+
+.main .page-header {
+    margin-top: 0;
+}
+
+/*
+ * ****************** SEGBOX ******************
+ */
+.navbar {
+    background-color: #0277BD;
+}
+
+.nav-top > li > a {
+    color: #FFF;
+}
+
+.nav-top > li > a:hover,
+.nav-top > li > a:active,
+.nav-top > li > a:focus {
+    text-decoration: none;
+    background-color: #0277BD;
+    color: #FFF;
+}
+
+.nav-item > li > a {
+    border-left: 5px solid #f5f5f5;
+}
+
+.nav-item > li > a:not(hover):focus {
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 5px solid #0277BD;
+}
+
+.nav-item > li > a:hover {
+    text-decoration: none;
+    background-color: #e1e1e1;
+    border-left: 5px solid #7d7e82;
+}
+
+.navbar-brand {
+    color: white;
+}
+
+.navbar-brand {
+    padding: 0px; /* firefox bug fix */
+}
+
+.navbar-brand > img {
+    height: 100%;
+    padding: 5px; /* firefox bug fix */
+    width: auto;
+}
+
+.navbar-brand:hover, .navbar-brand:focus {
+    color: #FFF;
+}
+
+.nav-separator {
+    border-bottom: 1px solid #BBB;
+    margin-bottom: 10px;
+}
+
+.seg-nav-topo {
+    border-left: 0;
+}
+
+.seg-nav-heading {
+    color: #707070;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-transform: uppercase;
+    margin: 0px;
+}
+
+.seg-nav-glyphicon {
+    font-size: 1.2em;
+    color: #6f7074;
+}
+
+.sb-profile-image {
+    width: 90px;
+    height: 90px;
+    border: 1px solid #DDD;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+}
+
+.no-bottom-padding {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.sb-profile-menu > li > span > a {
+    padding-top: 15px;
+    padding-bottom: 10px;
+    line-height: 20px;
+    color: #FFF;
+    position: relative;
+    display: block;
+}
+
+/****************** Paineis do Dashboard *******************/
+
+.panel-crm > .panel-heading {
+    color: #FFF;
+    background-color: #0277BD;
+    border-color: #0277BD;
+    height: 100px;
+}
+
+.panel-crm {
+    border-color: #0277BD;
+}
+
+.panel-crm > .panel-heading {
+    color: #FFF;
+    background-color: #0277BD;
+    border-color: #0277BD;
+    height: 100px;
+}
+
+.panel-seguros > .panel-heading {
+    color: #FFF;
+    background-color: #5cb85c;
+    border-color: #5cb85c;
+    height: 100px;
+}
+
+.panel-seguros {
+    border-color: #5cb85c;
+}
+
+.panel-seguros > .panel-heading {
+    color: #FFF;
+    background-color: #5cb85c;
+    border-color: #5cb85c;
+    height: 100px;
+}
+
+.panel-seguros-detalhes {
+    color: #5cb85c;
+}
+
+.panel-pendencia {
+    border-color: #d9534f;
+}
+
+.panel-pendencia > .panel-heading {
+    color: #FFF;
+    background-color: #d9534f;
+    border-color: #d9534f;
+    height: 100px;
+}
+
+.panel-pendencia-detalhes {
+    color: #d9534f;
+}
+
+.panel-alerta {
+    border-color: #f0ad4e;
+}
+
+.panel-alerta > .panel-heading {
+    color: #FFF;
+    background-color: #f0ad4e;
+    border-color: #f0ad4e;
+    height: 100px;
+}
+
+.panel-alerta-detalhes {
+    color: #f0ad4e;
+}
+
+.panel-dashboard-footer {
+    background-color: #FFF;
+}
+
+.panel-icon {
+    font-size: 2em;
+}
+
+/******************* FIM - Paineis do Dashboard *******************/
+
+input[type="text"].ng-invalid.ng-touched,
+input[type="number"].ng-invalid.ng-touched,
+input[type="email"].ng-invalid.ng-touched,
+input[type="tel"].ng-invalid.ng-touched,
+select.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched {
+    border-color: #B94A48 !important;
+    border-width: 2px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+
+input[type="text"]:disabled {
+    background: #f7f7f7;
+}
+
+.camposOcultos {
+    color: #0277BD;
+    cursor: pointer;
+    font-weight: 700;
+    font-style: oblique;
+}
+
+.sb-toobar {
+    padding-bottom: 10px;
+}
+
+.sb-glyphicon {
+    font-size: 1.2em;
+}
+
+.sb-glyphicon-red {
+    color: #B94A48;
+}
+
+.sb-asterisk {
+    color: #B94A48;
+    font-size: 12px;
+}
+
+.sb-glyphicon-green {
+    color: #5cb85c;
+}
+
+.sb-login {
+    border: 1px solid #DDD;
+    padding: 30px;
+    background-color: #f9f9f9;
+}
+
+.sb-login-back {
+    background-color: #0277BD;
+}
+
+.sb-login-btn {
+    height: 55px;
+    font-size: 20px;
+    border-radius: 50px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+}
+
+.sb-profile-name {
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.42;
+    border-radius: 15px;
+}
+
+.separator {
+    padding: 5px;
+}
+
+fieldset {
+    margin-top: 15px;
+    padding-top: 0px;
+}
+
+/*********************** Wizard ***********************/
+.wizard-active {
+    background-color: #0277BD;
+    color: white;
+    padding: 10px;
+}
+
+.wizard-active-past {
+    background-color: #9dc8e2;
+    color: white;
+    padding: 10px;
+}
+
+.wizard-desactive {
+    background-color: #F5F5F6;
+    color: #bababb;
+    padding: 10px;
+}
+
+/*** Font ****/
+
+* {
+    font-size: 13px;
+    line-height: 1.428;
+}
+
+/**** Menu usuário  ****/
+.menuUsuario {
+    color: #000;
+    padding: 6px;
+}
+
+.menuUsuario:hover {
+    color: #000;
+    padding: 6px;
+    background-color: #e1e1e1;
+}
+
+.sb-search {
+    background-color: #2e659d;
+    border-color: #22517b;
+    border-right-width: 0px;
+    color: white;
+}
+
+.sb-search:focus {
+    background-color: #2e659d;
+    border-color: #22517b;
+    border-right-width: 0px;
+    color: white;
+}
+
+.sb-search-button {
+    background-color: #2e659d;
+    border-color: #22517b;
+    border-left-width: 0px;
+    color: white;
+}
+
+/*********************/
+#loading-bar .bar {
+    background: #44b0fe;
+    height: 4px;
+}
+
+/********** Status ***********/
+#status-cancelado {
+    width: 20px;
+    height: 20px;
+    background: red;
+}
