@@ -5,14 +5,15 @@
 
     DestinationController.$inject = ['$scope', '$state'];
 
-    function DestinationController($scope, $state, Config) {
+    function DestinationController($scope, $state) {
 
-        $scope.isGestorOuAdm = function() {
-            return $scope.userInfo.perfis.indexOf('G') !== -1 || $scope.userInfo.perfis.indexOf('A') !== -1;
-        }
+        $scope.destinations = [
+            {id: 'Id1', url: 'http://locahost:8080'},
+            {id: 'Id2', url: 'http://locahost:8081'}
+        ];
 
-        $scope.alterarSenha = function() {
-            $state.go('root.senha-update');
+        $scope.getDestinations = function () {
+
         };
     }
 
