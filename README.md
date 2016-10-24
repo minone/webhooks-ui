@@ -28,6 +28,17 @@ The front end application consumes the Webhooks REST API, more information:
 
 # Running 
 
+Install the following tools: 
+
+* NodeJS (https://nodejs.org) 
+* NMP (https://www.npmjs.com/) 
+* bower (https://bower.io/)
+* Gulp (http://gulpjs.com/)
+
+Download project dependencies using bower. In the project root directory execute the following command:
+
+  bower install
+
 Use Gulp to run the application in localhost. In the project root directory execute the following command:
 
   gulp
