@@ -25,3 +25,15 @@ Single Page Web Application with the following functionalities:
 The front end application consumes the Webhooks REST API, more information:
 
 * Webhooks REST API (https://github.com/minone/webhooks)
+
+# Running 
+
+Use Gulp to run the application in localhost. In the project root directory execute the following command:
+
+  gulp
+  
+# Build
+
+Use Gulp to build the project. In the project root directory execute the following command:
+  
+  gulp build
